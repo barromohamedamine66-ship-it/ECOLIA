@@ -48,6 +48,15 @@ export default function HomePage() {
             </Link>
 
             <Link
+              href="/super-admin/schools"
+              className="px-4 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-amber-300 font-bold text-xs transition-all border border-amber-500/40 flex items-center gap-2"
+              title="Super Administration Multi-Établissements"
+            >
+              <i className="fa-solid fa-building-columns text-amber-400"></i>
+              Gérer les Écoles
+            </Link>
+
+            <Link
               href="/login"
               className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-md hover:shadow-emerald-600/30 flex items-center gap-2"
             >
