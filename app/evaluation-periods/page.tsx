@@ -19,7 +19,7 @@ export default function EvaluationPeriodsPage() {
   const loadData = async () => {
     setLoading(true);
     const res = await getEvaluationPeriods();
-    setPeriods(res.data);
+    setPeriods(res.data || []);
     setLoading(false);
   };
 

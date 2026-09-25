@@ -19,7 +19,7 @@ export default function SchedulesPage() {
   const loadData = async () => {
     setLoading(true);
     const res = await getPaymentSchedules();
-    setSchedules(res.data);
+    setSchedules(res.data || []);
     setLoading(false);
   };
 

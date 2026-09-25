@@ -32,7 +32,8 @@ export default function PaymentsPage() {
       setStudents(stuRes.data || []);
       setPayments(payRes.data || []);
       if (stuRes.data && stuRes.data.length > 0) {
-        setFormData(prev => ({ ...prev, studentId: stuRes.data[0].id }));
+        const firstStudentId = stuRes.data[0].id;
+        setFormData(prev => ({ ...prev, studentId: firstStudentId }));
       }
       setLoading(false);
     }

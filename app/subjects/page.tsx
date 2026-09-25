@@ -18,7 +18,7 @@ export default function SubjectsPage() {
   const loadData = async () => {
     setLoading(true);
     const res = await getSubjects();
-    setSubjects(res.data);
+    setSubjects(res.data || []);
     setLoading(false);
   };
 

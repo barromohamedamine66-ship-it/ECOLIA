@@ -29,7 +29,7 @@ export default function AnnouncementsPage() {
   const loadData = async () => {
     setLoading(true);
     const res = await getAnnouncements(schoolId);
-    setAnnouncements(res.data);
+    setAnnouncements(res.data || []);
     setLoading(false);
   };
 

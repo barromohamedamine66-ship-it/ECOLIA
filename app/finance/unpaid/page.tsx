@@ -14,7 +14,7 @@ export default function UnpaidPage() {
     async function init() {
       setLoading(true);
       const res = await getUnpaidBalancesList();
-      setBalances(res.data);
+      setBalances(res.data || []);
       setLoading(false);
     }
     init();

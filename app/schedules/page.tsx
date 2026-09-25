@@ -34,15 +34,17 @@ export default function SchedulesPage() {
         getClasses(),
         getSubjects(),
       ]);
-      setSchedules(schRes.data);
-      setClasses(clsRes.data);
-      setSubjects(subRes.data);
-      if (clsRes.data.length > 0) {
-        setSelectedClassId(clsRes.data[3]?.id || clsRes.data[0].id);
+      setSchedules(schRes.data || []);
+      setClasses(clsRes.data || []);
+      setSubjects(subRes.data || []);
+      if (clsRes.data && clsRes.data.length > 0) {
+        const defaultClassId = clsRes.data[3]?.id || clsRes.data[0].id;
+        const defaultSubjectId = subRes.data && subRes.data.length > 0 ? subRes.data[0].id : '';
+        setSelectedClassId(defaultClassId);
         setFormData(prev => ({
           ...prev,
-          classId: clsRes.data[3]?.id || clsRes.data[0].id,
-          subjectId: subRes.data[0]?.id || '',
+          classId: defaultClassId,
+          subjectId: defaultSubjectId,
         }));
       }
     }

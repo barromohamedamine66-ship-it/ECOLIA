@@ -38,13 +38,13 @@ export default function GradesPage() {
         getSubjects(),
         getAssessments(),
       ]);
-      setClasses(clsRes.data);
-      setSubjects(subRes.data);
-      setAssessments(asmRes.data);
+      setClasses(clsRes.data || []);
+      setSubjects(subRes.data || []);
+      setAssessments(asmRes.data || []);
 
-      if (clsRes.data.length > 0) setSelectedClass(clsRes.data[3]?.id || clsRes.data[0].id); // 3e A
-      if (subRes.data.length > 0) setSelectedSubject(subRes.data[0].id); // Maths
-      if (asmRes.data.length > 0) setSelectedAssessment(asmRes.data[0].id);
+      if (clsRes.data && clsRes.data.length > 0) setSelectedClass(clsRes.data[3]?.id || clsRes.data[0].id); // 3e A
+      if (subRes.data && subRes.data.length > 0) setSelectedSubject(subRes.data[0].id); // Maths
+      if (asmRes.data && asmRes.data.length > 0) setSelectedAssessment(asmRes.data[0].id);
     }
     initOptions();
   }, []);
@@ -67,11 +67,11 @@ export default function GradesPage() {
       { id: 'stu-2026-007', matricule: 'ECO-2026-00007', name: 'DIALLO Fatoumata' },
     ];
 
-    const currentStatus = res.data.length > 0 ? res.data[0].status : 'DRAFT';
+    const currentStatus = res.data && res.data.length > 0 ? res.data[0].status : 'DRAFT';
     setGradeStatus(currentStatus);
 
     const mapped = studentsDemo.map((st) => {
-      const found = res.data.find(g => g.student_id === st.id);
+      const found = res.data ? res.data.find(g => g.student_id === st.id) : undefined;
       return {
         studentId: st.id,
         matricule: st.matricule,

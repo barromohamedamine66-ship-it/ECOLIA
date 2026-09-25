@@ -18,7 +18,7 @@ export default function AcademicYearsPage() {
   const loadData = async () => {
     setLoading(true);
     const res = await getAcademicYears();
-    setYears(res.data);
+    setYears(res.data || []);
     setLoading(false);
   };
 

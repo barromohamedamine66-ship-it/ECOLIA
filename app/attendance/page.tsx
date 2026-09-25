@@ -19,8 +19,8 @@ export default function AttendancePage() {
   useEffect(() => {
     async function initClasses() {
       const clsRes = await getClasses();
-      setClasses(clsRes.data);
-      if (clsRes.data.length > 0) {
+      setClasses(clsRes.data || []);
+      if (clsRes.data && clsRes.data.length > 0) {
         setSelectedClass(clsRes.data[3]?.id || clsRes.data[0].id); // 3e A
       }
     }
@@ -35,7 +35,7 @@ export default function AttendancePage() {
   const loadSheet = async (clsId: string, dt: string, slot: string) => {
     setLoading(true);
     const res = await getAttendanceSheet(clsId, dt, slot);
-    setRoster(res.data);
+    setRoster(res.data || []);
     setLoading(false);
   };
 

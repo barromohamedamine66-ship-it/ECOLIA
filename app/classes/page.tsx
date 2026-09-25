@@ -19,7 +19,7 @@ export default function ClassesPage() {
   const loadData = async () => {
     setLoading(true);
     const res = await getClasses();
-    setClasses(res.data);
+    setClasses(res.data || []);
     setLoading(false);
   };
 

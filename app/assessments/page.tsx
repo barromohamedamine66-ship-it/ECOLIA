@@ -30,11 +30,17 @@ export default function AssessmentsPage() {
         getClasses(),
         getSubjects(),
       ]);
-      setAssessments(asmRes.data);
-      setClasses(clsRes.data);
-      setSubjects(subRes.data);
-      if (clsRes.data.length > 0) setFormData(prev => ({ ...prev, class_id: clsRes.data[0].id }));
-      if (subRes.data.length > 0) setFormData(prev => ({ ...prev, subject_id: subRes.data[0].id }));
+      setAssessments(asmRes.data || []);
+      setClasses(clsRes.data || []);
+      setSubjects(subRes.data || []);
+      if (clsRes.data && clsRes.data.length > 0) {
+        const defaultClassId = clsRes.data[0].id;
+        setFormData(prev => ({ ...prev, class_id: defaultClassId }));
+      }
+      if (subRes.data && subRes.data.length > 0) {
+        const defaultSubId = subRes.data[0].id;
+        setFormData(prev => ({ ...prev, subject_id: defaultSubId }));
+      }
       setLoading(false);
     }
     init();
@@ -56,7 +62,7 @@ export default function AssessmentsPage() {
     });
     setIsModalOpen(false);
     const res = await getAssessments();
-    setAssessments(res.data);
+    setAssessments(res.data || []);
   };
 
   return (
