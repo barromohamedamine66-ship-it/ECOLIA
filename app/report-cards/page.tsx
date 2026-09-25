@@ -70,10 +70,19 @@ export default function ReportCardsPage() {
             <p className="text-[10px] font-bold text-emerald-800">DRENA : ABIDJAN 1 • CODE ÉTABLISSEMENT : 012480</p>
           </div>
 
-          <div className="text-right space-y-1">
-            <p className="text-base font-black text-emerald-900">{reportData.school.name}</p>
-            <p className="text-[10px] text-amber-700 italic font-medium">« {reportData.school.motto} »</p>
-            <p className="text-[10px] text-slate-500 font-normal">{reportData.school.address} • Tél: {reportData.school.phone}</p>
+          <div className="flex items-center gap-3 text-right">
+            <div className="space-y-1">
+              <p className="text-base font-black text-emerald-900">{reportData.school.name}</p>
+              <p className="text-[10px] text-amber-700 italic font-medium">« {reportData.school.motto} »</p>
+              <p className="text-[10px] text-slate-500 font-normal">{reportData.school.address} • Tél: {reportData.school.phone}</p>
+            </div>
+            {reportData.school.logo_url && (
+              <img
+                src={reportData.school.logo_url}
+                alt="Logo Établissement"
+                className="w-14 h-14 rounded-xl object-cover border border-slate-300 shadow-sm"
+              />
+            )}
           </div>
         </div>
 

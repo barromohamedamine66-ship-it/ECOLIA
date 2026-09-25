@@ -157,3 +157,83 @@ export async function createAndBootstrapSchool(payload: NewSchoolPayload): Promi
     error: null,
   };
 }
+
+export async function getSchoolById(schoolId: string): Promise<{ data: SchoolRow | null; error: string | null }> {
+  if (isSupabaseConfigured()) {
+    const { data, error } = await supabase
+      .from('schools')
+      .select('*')
+      .eq('id', schoolId)
+      .single();
+
+    if (error) return { data: null, error: error.message };
+    return { data, error: null };
+  }
+
+  const schools = await getSchoolsList();
+  const found = schools.data.find(s => s.id === schoolId) || schools.data[0] || null;
+  return { data: found, error: null };
+}
+
+export interface SchoolCustomizationPayload {
+  name: string;
+  motto: string;
+  logo_url?: string | null;
+  phone: string;
+  email: string;
+  address: string;
+  city: string;
+  commune: string;
+  currency: string;
+  education_types: string[];
+}
+
+export async function updateSchoolSettings(
+  schoolId: string,
+  settings: SchoolCustomizationPayload
+): Promise<{ data: SchoolRow | null; error: string | null }> {
+  if (isSupabaseConfigured()) {
+    const { data, error } = await supabase
+      .from('schools')
+      .update({
+        name: settings.name.trim(),
+        motto: settings.motto.trim(),
+        logo_url: settings.logo_url || null,
+        phone: settings.phone.trim(),
+        email: settings.email.trim(),
+        address: settings.address.trim(),
+        city: settings.city.trim(),
+        commune: settings.commune.trim(),
+        currency: settings.currency || 'FCFA',
+        education_types: settings.education_types,
+        updated_at: new Date().toISOString(),
+      } as any)
+      .eq('id', schoolId)
+      .select()
+      .single();
+
+    if (error) return { data: null, error: error.message };
+    return { data, error: null };
+  }
+
+  return {
+    data: {
+      id: schoolId,
+      code: 'HORIZON-ABJ',
+      name: settings.name,
+      motto: settings.motto,
+      logo_url: settings.logo_url || null,
+      country: 'Côte d\'Ivoire',
+      city: settings.city,
+      commune: settings.commune,
+      address: settings.address,
+      phone: settings.phone,
+      email: settings.email,
+      currency: settings.currency || 'FCFA',
+      education_types: settings.education_types,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    },
+    error: null,
+  };
+}

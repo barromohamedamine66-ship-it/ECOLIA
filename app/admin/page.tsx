@@ -54,6 +54,15 @@ export default function AdminPortalPage() {
 
         <div className="flex items-center gap-3">
           <Link
+            href="/admin/settings"
+            className="px-3.5 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-xs font-bold flex items-center gap-2 transition-all shadow-sm"
+            title="Personnalisation Logo, Bulletins & Infos École"
+          >
+            <i className="fa-solid fa-wand-magic-sparkles text-amber-500"></i>
+            <span>Personnaliser l'Établissement</span>
+          </Link>
+
+          <Link
             href="/notifications"
             className="p-2 rounded-xl border bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-amber-500 relative text-xs font-bold"
             title="Centre de Notifications"

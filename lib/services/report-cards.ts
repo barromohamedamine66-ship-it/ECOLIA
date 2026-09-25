@@ -25,6 +25,7 @@ export interface FullReportCardData {
   school: {
     name: string;
     motto: string;
+    logo_url?: string | null;
     address: string;
     phone: string;
     email: string;
@@ -96,6 +97,7 @@ export async function getStudentReportCard(
     school: {
       name: 'GROUPE SCOLAIRE HORIZON',
       motto: 'Discipline • Travail • Excellence',
+      logo_url: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=150',
       address: 'Boulevard François Mitterrand, Riviera 3',
       phone: '+225 27 22 44 55 66',
       email: 'contact@horizon-abidjan.ci',
