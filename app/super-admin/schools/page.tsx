@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getSchoolsList, createAndBootstrapSchool, type SchoolRow, type NewSchoolPayload } from '../../../lib/services/schools';
+import SchoolLifeLogo from '../../../components/SchoolLifeLogo';
 
 export default function SuperAdminSchoolsPage() {
   const [schools, setSchools] = useState<SchoolRow[]>([]);
@@ -81,9 +82,7 @@ export default function SuperAdminSchoolsPage() {
       {/* Top Bar */}
       <header className="bg-slate-850 border-b border-slate-800 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/" className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-lg shadow-emerald-950">
-            SL
-          </Link>
+          <SchoolLifeLogo size="sm" withText={false} href="/" />
           <div>
             <h1 className="text-lg font-bold text-white flex items-center gap-2">
               <span>Super Administration SCHOOLLIFE</span>

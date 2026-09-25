@@ -6,6 +6,7 @@ import { getTeacherAssignments, type TeacherAssignmentRow } from '../../lib/serv
 import { getScheduleList, type EnrichedScheduleItem } from '../../lib/services/schedules';
 import { useSchool } from '../../lib/context/SchoolContext';
 import SchoolSwitcherModal from '../../components/SchoolSwitcherModal';
+import SchoolLifeLogo from '../../components/SchoolLifeLogo';
 
 export default function TeacherPortalPage() {
   const { currentSchool } = useSchool();
@@ -34,9 +35,7 @@ export default function TeacherPortalPage() {
       <header className="p-5 border-b border-slate-800/80 backdrop-blur-md bg-slate-900/60 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/" className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-emerald-950/50">
-              SL
-            </Link>
+            <SchoolLifeLogo size="sm" withText={false} href="/" />
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-lg font-black tracking-tight text-white">

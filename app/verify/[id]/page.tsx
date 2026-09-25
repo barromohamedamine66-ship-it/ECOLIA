@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../../components/SchoolLifeLogo';
 
 export default function DocumentVerificationPage({ params }: { params: { id: string } }) {
   const certId = params.id || 'ECO-CERT-2026-99A82B';
@@ -11,9 +12,7 @@ export default function DocumentVerificationPage({ params }: { params: { id: str
       {/* Header */}
       <header className="max-w-xl mx-auto w-full flex items-center justify-between pb-6 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <Link href="/" className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-lg">
-            SL
-          </Link>
+          <SchoolLifeLogo size="sm" withText={false} href="/" />
           <div>
             <span className="text-base font-black tracking-tight text-white block">SCHOOLLIFE CERTIFICATE</span>
             <span className="text-[10px] text-emerald-400 font-bold tracking-wider uppercase block">Système d'Authentification Anti-Fraude</span>
