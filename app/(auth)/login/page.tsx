@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import { signIn } from '../../../lib/auth/auth-service';
 import { isSupabaseConfigured } from '../../../lib/supabase/client';
 
+import SchoolLifeLogo from '../../../components/SchoolLifeLogo';
+
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
@@ -50,14 +52,8 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white flex flex-col justify-center items-center p-4">
       {/* Brand Header */}
-      <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white text-3xl font-black shadow-2xl shadow-emerald-900/60 mx-auto mb-3">
-          É
-        </div>
-        <h1 className="text-3xl font-black tracking-tight">ÉCOLIA</h1>
-        <p className="text-xs text-amber-400 font-semibold uppercase tracking-widest">
-          L'école, simplement.
-        </p>
+      <div className="text-center mb-8 flex flex-col items-center">
+        <SchoolLifeLogo size="lg" />
       </div>
 
       {/* Login Card */}

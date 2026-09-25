@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../components/SchoolLifeLogo';
 
 interface TeacherItem {
   id: string;
@@ -128,7 +129,7 @@ export default function TeachersManagementPage() {
   };
 
   const generateTeacherWhatsAppInvite = (teacher: TeacherItem) => {
-    const text = `Bonjour ${teacher.name},\nVoici vos accès officiels à la plateforme ÉCOLIA du Groupe Scolaire Horizon :\n\n👉 Espace Enseignant : https://ecolia.vercel.app/teacher\n🔑 Votre Code d'Accès : ${teacher.accessCode}\n📚 Matière : ${teacher.subject}\n👥 Vos Classes : ${teacher.classes.join(', ')}\n\nVous pouvez dès maintenant saisir vos notes et faire l'appel des présences depuis votre smartphone. Bonne rentrée !`;
+    const text = `Bonjour ${teacher.name},\nVoici vos accès officiels à la plateforme SCHOOLLIFE du Groupe Scolaire Horizon :\n\n👉 Espace Enseignant : https://schoollife.africa/teacher\n🔑 Votre Code d'Accès : ${teacher.accessCode}\n📚 Matière : ${teacher.subject}\n👥 Vos Classes : ${teacher.classes.join(', ')}\n\nVous pouvez dès maintenant saisir vos notes et faire l'appel des présences depuis votre smartphone. Bonne rentrée !`;
     const cleanPhone = teacher.phone.replace(/\D/g, '');
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
   };
@@ -138,9 +139,7 @@ export default function TeachersManagementPage() {
       {/* Header */}
       <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/" className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-            É
-          </Link>
+          <SchoolLifeLogo size="sm" withText={false} href="/" />
           <div>
             <h1 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>Gestion du Corps Enseignant</span>

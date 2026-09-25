@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../components/SchoolLifeLogo';
 import { getAssessments, type AssessmentRow } from '../../lib/services/assessments';
 import { getGradesForAssessment, saveGradesBatch, validateAssessmentGrades, type GradeRow, type GradeInput } from '../../lib/services/grades';
 import { getClasses, type ClassRow } from '../../lib/services/classes';
@@ -140,9 +141,7 @@ export default function GradesPage() {
       {/* Header */}
       <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/" className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-            É
-          </Link>
+          <SchoolLifeLogo size="sm" withText={false} href="/" />
           <div>
             <h1 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>Saisie & Validation des Notes</span>

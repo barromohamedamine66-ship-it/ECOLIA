@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../components/SchoolLifeLogo';
 import {
   getDocuments,
   uploadDocument,
@@ -167,6 +168,7 @@ export default function DocumentVaultPage() {
         {/* Top Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
           <div className="flex items-center gap-3">
+            <SchoolLifeLogo size="sm" withText={false} href="/admin" />
             <Link
               href="/admin"
               className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition-all"
@@ -176,7 +178,7 @@ export default function DocumentVaultPage() {
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-2xl font-black text-white tracking-tight">
-                  Coffre-fort Documentaire ÉCOLIA
+                  Coffre-fort Documentaire SCHOOLLIFE
                 </h1>
                 <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
                   <i className="fa-solid fa-shield-halved text-emerald-400"></i>

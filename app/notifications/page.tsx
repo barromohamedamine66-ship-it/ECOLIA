@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import SchoolLifeLogo from '../../components/SchoolLifeLogo';
 import { getNotifications, markAsRead, markAllAsRead, getUnreadCount } from '../../lib/services/notifications';
 import type { Notification, NotificationType } from '../../lib/supabase/types';
 
@@ -77,6 +78,7 @@ export default function NotificationsCenterPage() {
         {/* Top Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
           <div className="flex items-center gap-3">
+            <SchoolLifeLogo size="sm" withText={false} href="/admin" />
             <Link
               href="/admin"
               className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition-all"

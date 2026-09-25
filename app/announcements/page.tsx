@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../components/SchoolLifeLogo';
 import { getAnnouncements, createAnnouncement, publishAnnouncement, archiveAnnouncement } from '../../lib/services/announcements';
 import type { Announcement, AnnouncementTarget } from '../../lib/supabase/types';
 import { isSupabaseConfigured } from '../../lib/supabase/client';
@@ -116,6 +117,7 @@ export default function AnnouncementsPage() {
         {/* Navigation & Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
           <div className="flex items-center gap-3">
+            <SchoolLifeLogo size="sm" withText={false} href="/admin" />
             <Link
               href="/admin"
               className="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition-all"

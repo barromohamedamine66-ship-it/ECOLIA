@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../components/SchoolLifeLogo';
 import { getSubjects, createSubject, type SubjectRow } from '../../lib/services/subjects';
 
 export default function SubjectsPage() {
@@ -43,9 +44,7 @@ export default function SubjectsPage() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col">
       <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/" className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-            É
-          </Link>
+          <SchoolLifeLogo size="sm" withText={false} href="/" />
           <div>
             <h1 className="text-lg font-bold text-slate-900 dark:text-white">Matières & Coefficients</h1>
             <p className="text-xs text-slate-500">Barème pédagogique et pondération des notes</p>

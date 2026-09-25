@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../../../components/SchoolLifeLogo';
 import { recordPayment, getRecentPayments, type PaymentRow } from '../../../lib/services/payments';
 import { getStudents, type StudentRow } from '../../../lib/services/students';
 import { formatFCFA } from '../../../lib/calculations/finance';
@@ -69,9 +70,7 @@ export default function PaymentsPage() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col">
       <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/finance" className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-            É
-          </Link>
+          <SchoolLifeLogo size="sm" withText={false} href="/finance" />
           <div>
             <h1 className="text-lg font-bold text-slate-900 dark:text-white">Caisse & Encaissements</h1>
             <p className="text-xs text-slate-500">Enregistrement tactile et émission instantanée de reçus</p>

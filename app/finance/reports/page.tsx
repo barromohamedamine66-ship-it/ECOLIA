@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import SchoolLifeLogo from '../../../../components/SchoolLifeLogo';
 import { getUnpaidBalancesList } from '../../../lib/services/finance';
 import { formatFCFA, type StudentFinancialBalance } from '../../../lib/calculations/finance';
 
@@ -26,7 +27,7 @@ export default function FinanceReportsPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', `ecolia_rapport_financier_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `schoollife_rapport_financier_${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -36,9 +37,7 @@ export default function FinanceReportsPage() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col">
       <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/finance" className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-            É
-          </Link>
+          <SchoolLifeLogo size="sm" withText={false} href="/finance" />
           <div>
             <h1 className="text-lg font-bold text-slate-900 dark:text-white">Rapports & Synthèses Financières</h1>
             <p className="text-xs text-slate-500">États récapitulatifs et exports comptables</p>
