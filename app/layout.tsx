@@ -1,9 +1,28 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '../css/ecolia.css';
+import PwaController from '../components/PwaController';
+
+export const viewport: Viewport = {
+  themeColor: '#059669',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: 'ÉCOLIA — L\'école, simplement.',
   description: 'Plateforme numérique de gestion des établissements scolaires en Côte d\'Ivoire et Afrique francophone.',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'ÉCOLIA',
+  },
+  icons: {
+    icon: '/icons/icon-192.svg',
+    apple: '/icons/icon-192.svg',
+  },
 };
 
 export default function RootLayout({
@@ -14,6 +33,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className="light">
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -27,6 +50,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-slate-50 text-slate-900 min-h-screen">
         {children}
+        <PwaController />
       </body>
     </html>
   );
