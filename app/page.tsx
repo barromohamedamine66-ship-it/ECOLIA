@@ -31,11 +31,9 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className={`px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 ${
-              supabaseReady ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-            }`}>
-              <span className={`w-2 h-2 rounded-full ${supabaseReady ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
-              {supabaseReady ? 'Supabase Connecté' : 'Mode Démo Local Actif'}
+            <div className="px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Année 2026-2027 • En ligne
             </div>
 
             <Link
@@ -153,7 +151,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="p-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
-        <p>ÉCOLIA © 2026 — L'école, simplement. Conçu à Abidjan pour l'Afrique francophone.</p>
+        <p>ÉCOLIA © 2026 — L'école, simplement. Conçu pour l'Afrique francophone.</p>
       </footer>
     </div>
   );

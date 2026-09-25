@@ -107,15 +107,11 @@ export default function StudentsPage() {
           <div>
             <h1 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <span>Gestion des Élèves</span>
-              <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${
-                dataSource === 'SUPABASE'
-                  ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'
-                  : 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300'
-              }`}>
-                Source : {dataSource === 'SUPABASE' ? 'PostgreSQL / Supabase' : 'Store Local'}
+              <span className="text-xs px-2.5 py-0.5 rounded-full font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                Registre Officiel
               </span>
             </h1>
-            <p className="text-xs text-slate-500">Groupe Scolaire Horizon — Année 2026-2027</p>
+            <p className="text-xs text-slate-500">Groupe Scolaire Horizon — Année Scolaire 2026-2027</p>
           </div>
         </div>
 
