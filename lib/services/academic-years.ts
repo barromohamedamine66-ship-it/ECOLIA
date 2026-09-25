@@ -53,14 +53,14 @@ export async function createAcademicYear(year: AcademicYearInsert): Promise<{ da
     if (year.status === 'ACTIVE') {
       await supabase
         .from('academic_years')
-        .update({ status: 'ARCHIVED' })
+        .update({ status: 'ARCHIVED' as AcademicYearStatus })
         .eq('school_id', year.school_id)
         .eq('status', 'ACTIVE');
     }
 
     const { data, error } = await supabase
       .from('academic_years')
-      .insert([year])
+      .insert([year as any])
       .select()
       .single();
 
