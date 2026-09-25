@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ====================================================================
    ÉCOLIA SaaS - Stylesheet, Design System & Print Engine
    Nom du produit : ÉCOLIA | Signature : « L'école, simplement. »
