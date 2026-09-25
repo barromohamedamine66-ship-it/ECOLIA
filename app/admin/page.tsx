@@ -154,6 +154,10 @@ export default function AdminPortalPage() {
                 <span>Classes & Niveaux</span>
                 <i className="fa-solid fa-arrow-right text-slate-400"></i>
               </Link>
+              <Link href="/teachers" className="p-3 rounded-2xl bg-purple-50 dark:bg-slate-700/50 hover:bg-purple-100 text-purple-900 dark:text-purple-200 flex items-center justify-between block">
+                <span>Corps Enseignant & Codes d'Accès</span>
+                <i className="fa-solid fa-chalkboard-user text-purple-600"></i>
+              </Link>
               <Link href="/attendance" className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 flex items-center justify-between block">
                 <span>Feuille d'Appel & Présences</span>
                 <i className="fa-solid fa-arrow-right text-slate-400"></i>
