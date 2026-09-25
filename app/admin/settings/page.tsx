@@ -3,23 +3,25 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getSchoolById, updateSchoolSettings, type SchoolCustomizationPayload } from '../../../lib/services/schools';
+import { useSchool } from '../../../lib/context/SchoolContext';
 
 export default function SchoolSettingsPage() {
+  const { currentSchool, setCurrentSchool, refreshSchools } = useSchool();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [successToast, setSuccessToast] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<SchoolCustomizationPayload>({
-    name: 'Groupe Scolaire Horizon',
-    motto: 'Discipline • Travail • Excellence',
-    logo_url: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=150',
-    phone: '+225 27 22 44 55 66',
-    email: 'direction@horizon-abidjan.ci',
-    address: 'Boulevard François Mitterrand, Riviera 3',
-    city: 'Abidjan',
-    commune: 'Cocody',
-    currency: 'FCFA',
-    education_types: ['COLLEGE', 'LYCEE'],
+    name: currentSchool.name,
+    motto: currentSchool.motto || 'Discipline • Travail • Excellence',
+    logo_url: currentSchool.logo_url || 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=150',
+    phone: currentSchool.phone || '+225 27 22 44 55 66',
+    email: currentSchool.email || 'direction@ecole.ci',
+    address: currentSchool.address || 'Boulevard François Mitterrand',
+    city: currentSchool.city || 'Abidjan',
+    commune: currentSchool.commune || 'Cocody',
+    currency: currentSchool.currency || 'FCFA',
+    education_types: currentSchool.education_types || ['COLLEGE', 'LYCEE'],
   });
 
   const [drenaName, setDrenaName] = useState('DRENA Abidjan 1');
@@ -28,15 +30,15 @@ export default function SchoolSettingsPage() {
   useEffect(() => {
     async function load() {
       setLoading(true);
-      const res = await getSchoolById('a0000000-0000-0000-0000-000000000001');
+      const res = await getSchoolById(currentSchool.id);
       if (res.data) {
         setFormData({
           name: res.data.name,
           motto: res.data.motto || 'Discipline • Travail • Excellence',
           logo_url: res.data.logo_url || 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=150',
           phone: res.data.phone || '+225 27 22 44 55 66',
-          email: res.data.email || 'contact@horizon.ci',
-          address: res.data.address || 'Boulevard François Mitterrand',
+          email: res.data.email || 'contact@ecole.ci',
+          address: res.data.address || 'Boulevard Principal',
           city: res.data.city || 'Abidjan',
           commune: res.data.commune || 'Cocody',
           currency: res.data.currency || 'FCFA',
@@ -46,18 +48,20 @@ export default function SchoolSettingsPage() {
       setLoading(false);
     }
     load();
-  }, []);
+  }, [currentSchool.id]);
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
     setSuccessToast(null);
 
-    const res = await updateSchoolSettings('a0000000-0000-0000-0000-000000000001', formData);
+    const res = await updateSchoolSettings(currentSchool.id, formData);
     setSaving(false);
 
     if (res.data) {
-      setSuccessToast('Paramètres et personnalisation enregistrés avec succès ! Les bulletins et reçus sont mis à jour.');
+      setCurrentSchool(res.data);
+      refreshSchools();
+      setSuccessToast('Paramètres et personnalisation enregistrés avec succès ! Les bulletins, reçus et portails sont mis à jour.');
       setTimeout(() => setSuccessToast(null), 5000);
     }
   };

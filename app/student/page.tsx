@@ -1,9 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useSchool } from '../../lib/context/SchoolContext';
+import SchoolSwitcherModal from '../../components/SchoolSwitcherModal';
 
 export default function StudentPortalPage() {
+  const { currentSchool } = useSchool();
+  const [isSwitcherOpen, setIsSwitcherOpen] = useState(false);
   const student = {
     matricule: 'ECO-2026-00001',
     fullName: 'Mohamed TRAORÉ',
@@ -44,11 +48,19 @@ export default function StudentPortalPage() {
                   {student.className}
                 </span>
               </div>
-              <p className="text-xs text-slate-400">{student.fullName} ({student.matricule})</p>
+              <p className="text-xs text-slate-400">{currentSchool.name} • {student.fullName}</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsSwitcherOpen(true)}
+              className="px-3.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-800 border border-blue-500/40 text-xs font-bold text-slate-200 hover:text-white flex items-center gap-2 transition-all shadow-sm"
+              title="Changer d'Établissement"
+            >
+              <i className="fa-solid fa-building-columns text-blue-400"></i>
+              <span className="hidden sm:inline">Changer d'École</span>
+            </button>
             <Link
               href="/notifications"
               className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-amber-400 transition-all relative border border-slate-700 text-xs font-bold"
@@ -203,6 +215,12 @@ export default function StudentPortalPage() {
       <footer className="p-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
         <p>ÉCOLIA © 2026 — L'école, simplement. Conçu pour l'Afrique francophone.</p>
       </footer>
+
+      {/* School Switcher Modal */}
+      <SchoolSwitcherModal
+        isOpen={isSwitcherOpen}
+        onClose={() => setIsSwitcherOpen(false)}
+      />
     </div>
   );
 }

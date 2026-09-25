@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getStudentReportCard, type FullReportCardData } from '../../lib/services/report-cards';
 import { formatRank } from '../../lib/calculations/averages';
+import { useSchool } from '../../lib/context/SchoolContext';
 
 export default function ReportCardsPage() {
+  const { currentSchool } = useSchool();
   const [reportData, setReportData] = useState<FullReportCardData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -25,14 +27,20 @@ export default function ReportCardsPage() {
 
   if (loading || !reportData) {
     return (
-      <div className="min-h-screen bg-slate-100 flex items-center justify-center p-6 text-slate-500">
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center p-6 text-slate-400">
         <div className="text-center space-y-3">
-          <i className="fa-solid fa-spinner animate-spin text-3xl text-emerald-600"></i>
+          <i className="fa-solid fa-spinner animate-spin text-3xl text-emerald-500"></i>
           <p className="font-bold text-sm">Génération du bulletin scolaire officiel...</p>
         </div>
       </div>
     );
   }
+
+  const schoolName = currentSchool?.name || reportData.school.name;
+  const schoolMotto = currentSchool?.motto || reportData.school.motto;
+  const schoolAddress = currentSchool?.address || reportData.school.address;
+  const schoolPhone = currentSchool?.phone || reportData.school.phone;
+  const schoolLogo = currentSchool?.logo_url || reportData.school.logo_url;
 
   return (
     <div className="min-h-screen bg-slate-100 dark:bg-slate-900 text-slate-800 p-4 md:p-8 flex flex-col items-center">
@@ -72,13 +80,13 @@ export default function ReportCardsPage() {
 
           <div className="flex items-center gap-3 text-right">
             <div className="space-y-1">
-              <p className="text-base font-black text-emerald-900">{reportData.school.name}</p>
-              <p className="text-[10px] text-amber-700 italic font-medium">« {reportData.school.motto} »</p>
-              <p className="text-[10px] text-slate-500 font-normal">{reportData.school.address} • Tél: {reportData.school.phone}</p>
+              <p className="text-base font-black text-emerald-900 uppercase">{schoolName}</p>
+              <p className="text-[10px] text-amber-700 italic font-medium">« {schoolMotto} »</p>
+              <p className="text-[10px] text-slate-500 font-normal">{schoolAddress} • Tél: {schoolPhone}</p>
             </div>
-            {reportData.school.logo_url && (
+            {schoolLogo && (
               <img
-                src={reportData.school.logo_url}
+                src={schoolLogo}
                 alt="Logo Établissement"
                 className="w-14 h-14 rounded-xl object-cover border border-slate-300 shadow-sm"
               />
