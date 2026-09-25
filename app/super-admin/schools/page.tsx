@@ -10,6 +10,7 @@ export default function SuperAdminSchoolsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<NewSchoolPayload>({
     name: '',
@@ -38,6 +39,7 @@ export default function SuperAdminSchoolsPage() {
     e.preventDefault();
     setSubmitting(true);
     setSuccessMessage(null);
+    setErrorMessage(null);
 
     const res = await createAndBootstrapSchool(formData);
     setSubmitting(false);
@@ -57,6 +59,8 @@ export default function SuperAdminSchoolsPage() {
         education_types: ['COLLEGE', 'LYCEE'],
       });
       loadSchools();
+    } else if (res.error) {
+      setErrorMessage(res.error);
     }
   };
 
@@ -116,6 +120,19 @@ export default function SuperAdminSchoolsPage() {
               <span className="text-sm font-semibold">{successMessage}</span>
             </div>
             <button onClick={() => setSuccessMessage(null)} className="text-xs text-emerald-300 hover:text-white font-bold">
+              Fermer
+            </button>
+          </div>
+        )}
+
+        {/* Error Banner */}
+        {errorMessage && (
+          <div className="p-4 rounded-2xl bg-rose-900/40 border border-rose-500/50 text-rose-200 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <i className="fa-solid fa-circle-exclamation text-xl text-rose-400"></i>
+              <span className="text-sm font-semibold">{errorMessage}</span>
+            </div>
+            <button onClick={() => setErrorMessage(null)} className="text-xs text-rose-300 hover:text-white font-bold">
               Fermer
             </button>
           </div>

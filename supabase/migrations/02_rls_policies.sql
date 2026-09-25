@@ -57,8 +57,20 @@ $$ LANGUAGE sql SECURITY DEFINER STABLE;
 
 -- SCHOOLS
 DROP POLICY IF EXISTS "Super admin sees all schools, users see their own school" ON schools;
-CREATE POLICY "Super admin sees all schools, users see their own school"
-ON schools FOR ALL
+DROP POLICY IF EXISTS "Allow public read of schools" ON schools;
+DROP POLICY IF EXISTS "Allow school registration" ON schools;
+DROP POLICY IF EXISTS "Allow admins to update school" ON schools;
+
+CREATE POLICY "Allow public read of schools"
+ON schools FOR SELECT
+USING (true);
+
+CREATE POLICY "Allow school registration"
+ON schools FOR INSERT
+WITH CHECK (true);
+
+CREATE POLICY "Allow admins to update school"
+ON schools FOR UPDATE
 USING (is_super_admin() OR id = get_auth_school_id());
 
 -- PROFILES
@@ -91,18 +103,34 @@ CREATE POLICY "Admins and Secretaries can modify students"
 ON students FOR ALL
 USING (is_super_admin() OR (school_id = get_auth_school_id() AND get_auth_role() IN ('SCHOOL_ADMIN', 'DIRECTOR', 'SECRETARY')));
 
--- CLASSES, SUBJECTS, ACADEMIC YEARS
+-- ACADEMIC YEARS
+DROP POLICY IF EXISTS "Users see academic years" ON academic_years;
+DROP POLICY IF EXISTS "Allow academic years registration" ON academic_years;
+DROP POLICY IF EXISTS "Allow admins to update academic years" ON academic_years;
+CREATE POLICY "Users see academic years" ON academic_years FOR SELECT USING (true);
+CREATE POLICY "Allow academic years registration" ON academic_years FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow admins to update academic years" ON academic_years FOR UPDATE USING (is_super_admin() OR (school_id = get_auth_school_id() AND is_school_admin_or_director()));
+
+-- EVALUATION PERIODS
+DROP POLICY IF EXISTS "Users see evaluation periods" ON evaluation_periods;
+DROP POLICY IF EXISTS "Allow evaluation periods registration" ON evaluation_periods;
+CREATE POLICY "Users see evaluation periods" ON evaluation_periods FOR SELECT USING (true);
+CREATE POLICY "Allow evaluation periods registration" ON evaluation_periods FOR INSERT WITH CHECK (true);
+
+-- CLASSES
 DROP POLICY IF EXISTS "Users see academic structure of their school" ON classes;
-CREATE POLICY "Users see academic structure of their school"
-ON classes FOR SELECT USING (is_super_admin() OR school_id = get_auth_school_id());
-
 DROP POLICY IF EXISTS "Admins manage classes" ON classes;
-CREATE POLICY "Admins manage classes"
-ON classes FOR ALL USING (is_super_admin() OR (school_id = get_auth_school_id() AND is_school_admin_or_director()));
+DROP POLICY IF EXISTS "Allow classes view" ON classes;
+DROP POLICY IF EXISTS "Allow classes registration" ON classes;
+CREATE POLICY "Allow classes view" ON classes FOR SELECT USING (true);
+CREATE POLICY "Allow classes registration" ON classes FOR INSERT WITH CHECK (true);
+CREATE POLICY "Admins manage classes" ON classes FOR ALL USING (is_super_admin() OR (school_id = get_auth_school_id() AND is_school_admin_or_director()));
 
+-- SUBJECTS
 DROP POLICY IF EXISTS "Users see subjects" ON subjects;
-CREATE POLICY "Users see subjects"
-ON subjects FOR SELECT USING (is_super_admin() OR school_id = get_auth_school_id());
+DROP POLICY IF EXISTS "Allow subjects registration" ON subjects;
+CREATE POLICY "Users see subjects" ON subjects FOR SELECT USING (true);
+CREATE POLICY "Allow subjects registration" ON subjects FOR INSERT WITH CHECK (true);
 
 -- GRADES & ASSESSMENTS
 DROP POLICY IF EXISTS "Staff see grades, parents see only their child's grades" ON grades;
