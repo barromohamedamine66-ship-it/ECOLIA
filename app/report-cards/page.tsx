@@ -225,6 +225,30 @@ export default function ReportCardsPage() {
             </div>
           </div>
         </div>
+
+        {/* Anti-Fraud QR Code & Security Certificate */}
+        <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
+          <Link
+            href="/verify/ECO-2026-00001-T1"
+            className="p-2 bg-slate-50 border border-slate-300 rounded-xl hover:border-emerald-600 transition-all flex items-center gap-2.5 group"
+            title="Cliquer pour vérifier l'authenticité"
+          >
+            <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-emerald-400 text-base">
+              <i className="fa-solid fa-qrcode"></i>
+            </div>
+            <div className="text-left">
+              <span className="font-bold text-slate-800 group-hover:text-emerald-700 block text-[10px]">
+                Scan de Vérification Anti-Fraude
+              </span>
+              <span className="text-[9px] text-slate-400 font-mono">Certificat : ECO-CERT-99A82B</span>
+            </div>
+          </Link>
+
+          <div className="text-right space-y-0.5">
+            <p className="font-bold text-slate-700">Document officiel généré par ÉCOLIA SaaS</p>
+            <p className="text-[9px] text-slate-400">Conforme au système éducatif de Côte d'Ivoire</p>
+          </div>
+        </div>
       </div>
     </div>
   );

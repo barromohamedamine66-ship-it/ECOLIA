@@ -116,6 +116,14 @@ export default function StudentsPage() {
         </div>
 
         <div className="flex items-center gap-3">
+          <Link
+            href="/students/import"
+            className="px-4 py-2.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-800 dark:text-slate-200 font-bold text-sm rounded-xl shadow-sm flex items-center gap-2 transition-all border border-slate-300 dark:border-slate-600"
+          >
+            <i className="fa-solid fa-file-excel text-emerald-600"></i>
+            Import Excel / CSV
+          </Link>
+
           <button
             onClick={() => setIsModalOpen(true)}
             className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl shadow-sm flex items-center gap-2 transition-all"

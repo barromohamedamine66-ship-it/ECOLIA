@@ -146,6 +146,10 @@ export default function AdminPortalPage() {
                 <span>Gestion des Fiches Élèves (Matricules)</span>
                 <i className="fa-solid fa-arrow-right text-slate-400"></i>
               </Link>
+              <Link href="/students/import" className="p-3 rounded-2xl bg-emerald-50 dark:bg-slate-700/50 hover:bg-emerald-100 text-emerald-900 dark:text-emerald-200 flex items-center justify-between block">
+                <span>Importation Massive Excel / CSV</span>
+                <i className="fa-solid fa-file-excel text-emerald-600"></i>
+              </Link>
               <Link href="/classes" className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 flex items-center justify-between block">
                 <span>Classes & Niveaux</span>
                 <i className="fa-solid fa-arrow-right text-slate-400"></i>
@@ -178,19 +182,19 @@ export default function AdminPortalPage() {
             </div>
           </div>
 
-          {/* Communication Shortcuts (Phase 6) */}
+          {/* Communication & WhatsApp Shortcuts */}
           <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-purple-500/30 dark:border-purple-500/30 shadow-sm space-y-3">
             <h2 className="text-sm font-black uppercase text-purple-600 tracking-wider flex items-center gap-2">
-              <i className="fa-solid fa-bullhorn"></i> Communication & Alertes
+              <i className="fa-solid fa-bullhorn"></i> Communication & WhatsApp
             </h2>
             <div className="space-y-2 text-xs font-bold">
+              <Link href="/communications/alerts" className="p-3 rounded-2xl bg-green-50 dark:bg-slate-700/50 hover:bg-green-100 text-green-900 dark:text-green-200 flex items-center justify-between block">
+                <span>Centre d'Alertes WhatsApp & SMS</span>
+                <i className="fa-brands fa-whatsapp text-green-600 text-sm"></i>
+              </Link>
               <Link href="/announcements" className="p-3 rounded-2xl bg-purple-50 dark:bg-slate-700/50 hover:bg-purple-100 text-purple-900 dark:text-purple-200 flex items-center justify-between block">
                 <span>Publication d'Annonces</span>
                 <i className="fa-solid fa-arrow-right text-purple-400"></i>
-              </Link>
-              <Link href="/notifications" className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 flex items-center justify-between block">
-                <span>Centre de Notifications</span>
-                <i className="fa-solid fa-arrow-right text-slate-400"></i>
               </Link>
               <Link href="/documents" className="p-3 rounded-2xl bg-cyan-50 dark:bg-slate-700/50 hover:bg-cyan-100 text-cyan-950 dark:text-cyan-200 flex items-center justify-between block">
                 <span>Coffre-fort Documentaire</span>
