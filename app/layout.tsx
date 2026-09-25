@@ -11,13 +11,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'ÉCOLIA — L\'école, simplement.',
+  title: 'SCHOOLLIFE — L\'école, simplement.',
   description: 'Plateforme numérique de gestion des établissements scolaires en Côte d\'Ivoire et Afrique francophone.',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'ÉCOLIA',
+    title: 'SCHOOLLIFE',
   },
   icons: {
     icon: '/icons/icon-192.svg',

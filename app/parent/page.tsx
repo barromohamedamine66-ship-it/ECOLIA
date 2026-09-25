@@ -95,7 +95,7 @@ export default function ParentPortalPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/" className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-emerald-950/50">
-              É
+              SL
             </Link>
             <div>
               <div className="flex items-center gap-2">
@@ -321,7 +321,7 @@ export default function ParentPortalPage() {
 
       {/* Footer */}
       <footer className="p-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
-        <p>ÉCOLIA © 2026 — L'école, simplement. Conçu pour l'Afrique francophone.</p>
+        <p>SCHOOLLIFE © 2026 — L'école, simplement. Conçu pour l'Afrique francophone.</p>
       </footer>
 
       {/* School Switcher Modal */}

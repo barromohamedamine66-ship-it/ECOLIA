@@ -12,10 +12,10 @@ export default function DocumentVerificationPage({ params }: { params: { id: str
       <header className="max-w-xl mx-auto w-full flex items-center justify-between pb-6 border-b border-slate-800">
         <div className="flex items-center gap-3">
           <Link href="/" className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-lg">
-            É
+            SL
           </Link>
           <div>
-            <span className="text-base font-black tracking-tight text-white block">ÉCOLIA CERTIFICATE</span>
+            <span className="text-base font-black tracking-tight text-white block">SCHOOLLIFE CERTIFICATE</span>
             <span className="text-[10px] text-emerald-400 font-bold tracking-wider uppercase block">Système d'Authentification Anti-Fraude</span>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function DocumentVerificationPage({ params }: { params: { id: str
 
       {/* Footer */}
       <footer className="max-w-xl mx-auto w-full text-center text-xs text-slate-500 pt-6 border-t border-slate-800">
-        <p>ÉCOLIA © 2026 — Plateforme d'Authentification Scolaire Certifiée.</p>
+        <p>SCHOOLLIFE © 2026 — Plateforme d'Authentification Scolaire Certifiée.</p>
       </footer>
     </div>
   );

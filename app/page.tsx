@@ -46,12 +46,12 @@ export default function HomePage() {
       <header className="p-5 border-b border-slate-800/80 backdrop-blur-md sticky top-0 z-40 bg-slate-900/60">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-emerald-950/50">
-              É
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white text-xl font-black shadow-lg shadow-emerald-950/50">
+              SL
             </div>
             <div>
               <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-emerald-300 bg-clip-text text-transparent">
-                ÉCOLIA
+                SCHOOLLIFE
               </span>
               <span className="block text-[10px] text-amber-400 font-bold tracking-wider uppercase">
                 L'école, simplement.
@@ -273,7 +273,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="p-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
-        <p>ÉCOLIA © 2026 — L'école, simplement. Conçu pour l'Afrique francophone.</p>
+        <p>SCHOOLLIFE © 2026 — L'école, simplement. Conçu pour l'Afrique francophone.</p>
       </footer>
 
       {/* School Switcher & Universal Access Modal */}

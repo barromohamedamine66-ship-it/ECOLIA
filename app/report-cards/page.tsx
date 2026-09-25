@@ -257,12 +257,12 @@ export default function ReportCardsPage() {
               <span className="font-bold text-slate-800 group-hover:text-emerald-700 block text-[10px]">
                 Scan de Vérification Anti-Fraude
               </span>
-              <span className="text-[9px] text-slate-400 font-mono">Certificat : ECO-CERT-99A82B</span>
+              <span className="text-[9px] text-slate-400 font-mono">Certificat : SL-CERT-99A82B</span>
             </div>
           </Link>
 
           <div className="text-right space-y-0.5">
-            <p className="font-bold text-slate-700">Document officiel généré par ÉCOLIA SaaS</p>
+            <p className="font-bold text-slate-700">Document officiel généré par SCHOOLLIFE SaaS</p>
             <p className="text-[9px] text-slate-400">Conforme au système éducatif de Côte d'Ivoire</p>
           </div>
         </div>

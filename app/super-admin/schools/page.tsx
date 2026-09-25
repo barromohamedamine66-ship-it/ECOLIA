@@ -82,11 +82,11 @@ export default function SuperAdminSchoolsPage() {
       <header className="bg-slate-850 border-b border-slate-800 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link href="/" className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 text-slate-950 flex items-center justify-center font-black text-xl shadow-lg shadow-emerald-950">
-            É
+            SL
           </Link>
           <div>
             <h1 className="text-lg font-bold text-white flex items-center gap-2">
-              <span>Super Administration ÉCOLIA</span>
+              <span>Super Administration SCHOOLLIFE</span>
               <span className="text-xs px-2.5 py-0.5 rounded-full font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
                 Multi-Établissements
               </span>
