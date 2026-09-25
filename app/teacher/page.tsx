@@ -25,146 +25,168 @@ export default function TeacherPortalPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white flex flex-col justify-between">
       {/* Top Header */}
-      <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-            É
-          </Link>
-          <div>
-            <h1 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span>Espace Enseignant</span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full font-bold bg-emerald-100 text-emerald-800">
-                Mathématiques
-              </span>
-            </h1>
-            <p className="text-xs text-slate-500">M. KOFFI Yao Simplice — Année 2026-2027</p>
+      <header className="p-5 border-b border-slate-800/80 backdrop-blur-md bg-slate-900/60 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Link href="/" className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-emerald-950/50">
+              É
+            </Link>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-lg font-black tracking-tight text-white">
+                  Portail Enseignant & Pédagogie
+                </h1>
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                  Mathématiques
+                </span>
+              </div>
+              <p className="text-xs text-slate-400">M. KOFFI Yao Simplice • Année Académique 2026-2027</p>
+            </div>
           </div>
-        </div>
 
-        <div className="flex items-center gap-3">
-          <Link
-            href="/notifications"
-            className="p-2 rounded-xl border bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-amber-500 relative text-xs font-bold"
-            title="Centre de Notifications"
-          >
-            <i className="fa-solid fa-bell text-amber-500"></i>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/notifications"
+              className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-amber-400 transition-all relative border border-slate-700 text-xs font-bold"
+              title="Centre de Notifications"
+            >
+              <i className="fa-solid fa-bell text-amber-400 text-sm"></i>
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-500 text-slate-950 font-black text-[9px] flex items-center justify-center">
+                1
+              </span>
+            </Link>
 
-          <Link
-            href="/profile"
-            className="flex items-center gap-2 px-3 py-1.5 rounded-xl border bg-slate-50 dark:bg-slate-700 text-xs font-bold hover:bg-slate-100"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            Mon Compte
-          </Link>
+            <Link
+              href="/"
+              className="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-xs font-bold text-slate-300 hover:text-white border border-slate-700 transition-all"
+            >
+              Accueil SaaS
+            </Link>
+          </div>
         </div>
       </header>
 
       {/* Main Container */}
-      <main className="max-w-6xl w-full mx-auto p-4 md:p-6 flex-1 space-y-6">
-        {/* Welcome Banner */}
-        <div className="p-6 rounded-3xl bg-gradient-to-r from-emerald-800 via-teal-800 to-slate-900 text-white shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <span className="text-xs uppercase font-bold text-amber-300 tracking-wider">Session Active</span>
-            <h2 className="text-2xl font-black mt-1">Bonjour, M. KOFFI Yao</h2>
-            <p className="text-xs text-slate-300 mt-1">
-              Vous avez 2 classes affectées (3e A, Terminale D) pour un total de 8h de cours hebdomadaires.
-            </p>
+      <main className="max-w-6xl w-full mx-auto p-6 flex-1 space-y-6">
+        {/* Contextual Teacher Hero Banner */}
+        <div className="relative overflow-hidden rounded-3xl border border-emerald-500/40 shadow-2xl bg-slate-900 group">
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/images/teacher_hero.jpg"
+              alt="Enseignement et Pédagogie Écolia"
+              className="w-full h-full object-cover object-center opacity-35 group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent"></div>
           </div>
 
-          <div className="flex gap-2">
-            <Link
-              href="/attendance"
-              className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-md flex items-center gap-2 transition-all"
-            >
-              <i className="fa-solid fa-user-check"></i>
-              Faire l'Appel
-            </Link>
-            <Link
-              href="/grades"
-              className="px-4 py-2.5 bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs rounded-xl shadow-md flex items-center gap-2 transition-all"
-            >
-              <i className="fa-solid fa-pen-to-square"></i>
-              Saisir les Notes
-            </Link>
+          <div className="relative z-10 p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="max-w-2xl space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] font-bold">
+                <i className="fa-solid fa-chalkboard-user"></i>
+                Espace Pédagogique Actif
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black tracking-tight text-white">
+                Bonjour, M. KOFFI Yao
+              </h2>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                Vous avez <strong>2 classes affectées</strong> (3e A, Terminale D) pour un total de <strong>8h de cours</strong> hebdomadaires avec pointage numérique d'appel et saisie directe des devoirs.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/attendance"
+                className="px-5 py-3 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-black text-xs rounded-2xl shadow-lg flex items-center gap-2.5 transition-all hover:scale-105"
+              >
+                <i className="fa-solid fa-user-check text-sm"></i>
+                Faire l'Appel
+              </Link>
+              <Link
+                href="/grades"
+                className="px-5 py-3 bg-slate-800/90 hover:bg-slate-800 text-amber-300 font-bold text-xs rounded-2xl border border-amber-500/40 shadow-lg flex items-center gap-2.5 transition-all"
+              >
+                <i className="fa-solid fa-pen-to-square text-sm"></i>
+                Saisir les Notes
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* 3 Quick Action Cards */}
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-5">
           <Link
             href="/attendance"
-            className="p-5 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition-all group"
+            className="p-6 rounded-3xl bg-slate-800/80 backdrop-blur-md border border-slate-700/80 hover:border-emerald-500/80 shadow-xl transition-all group hover:scale-[1.02]"
           >
-            <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-lg mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xl mb-4 border border-emerald-500/30">
               <i className="fa-solid fa-calendar-check"></i>
             </div>
-            <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-emerald-600">
+            <h3 className="font-extrabold text-base text-white group-hover:text-emerald-300 transition-colors">
               Feuille d'Appel Rapide
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-400 mt-2 leading-relaxed">
               Pointage journalier des présences, retards et absences pour vos classes.
             </p>
           </Link>
 
           <Link
             href="/grades"
-            className="p-5 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition-all group"
+            className="p-6 rounded-3xl bg-slate-800/80 backdrop-blur-md border border-slate-700/80 hover:border-blue-500/80 shadow-xl transition-all group hover:scale-[1.02]"
           >
-            <div className="w-10 h-10 rounded-2xl bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-lg mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center text-xl mb-4 border border-blue-500/30">
               <i className="fa-solid fa-graduation-cap"></i>
             </div>
-            <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-blue-600">
-              Cahier de Notes
+            <h3 className="font-extrabold text-base text-white group-hover:text-blue-300 transition-colors">
+              Cahier de Notes & Moyennes
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
-              Saisie des devoirs, interrogations et soumission à la direction.
+            <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+              Saisie des devoirs, interrogations et soumission à la direction pour les bulletins.
             </p>
           </Link>
 
           <Link
-            href="/teacher/classes"
-            className="p-5 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:border-emerald-500 transition-all group"
+            href="/teachers"
+            className="p-6 rounded-3xl bg-slate-800/80 backdrop-blur-md border border-slate-700/80 hover:border-purple-500/80 shadow-xl transition-all group hover:scale-[1.02]"
           >
-            <div className="w-10 h-10 rounded-2xl bg-purple-100 text-purple-700 font-bold flex items-center justify-center text-lg mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-xl mb-4 border border-purple-500/30">
               <i className="fa-solid fa-users"></i>
             </div>
-            <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-purple-600">
-              Mes Classes & Élèves
+            <h3 className="font-extrabold text-base text-white group-hover:text-purple-300 transition-colors">
+              Mes Classes & Effectifs
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
-              Effectifs, trombinoscopes et moyennes de vos classes affectées.
+            <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+              Effectifs, fiches élèves et moyennes récapitulatives par niveau.
             </p>
           </Link>
         </div>
 
         {/* Today's Schedule Card */}
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm">
+        <div className="bg-slate-800/80 backdrop-blur-md p-6 rounded-3xl border border-slate-700/80 shadow-xl">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-              <i className="fa-solid fa-clock text-emerald-600"></i>
-              Mon Planning & Emploi du Temps
+            <h3 className="font-bold text-sm text-white flex items-center gap-2">
+              <i className="fa-solid fa-clock text-emerald-400"></i>
+              Mon Planning & Emploi du Temps Hebdomadaire
             </h3>
-            <Link href="/schedules" className="text-xs font-bold text-emerald-600 hover:underline">
+            <Link href="/schedules" className="text-xs font-bold text-emerald-400 hover:underline">
               Voir la grille complète →
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="grid sm:grid-cols-2 gap-4">
             {todayCourses.map((c) => (
-              <div key={c.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700 flex items-center justify-between text-xs">
+              <div key={c.id} className="p-4 rounded-2xl bg-slate-900/70 border border-slate-700/60 flex items-center justify-between text-xs hover:border-emerald-500/40 transition-colors">
                 <div>
-                  <span className="font-bold font-mono text-emerald-700 dark:text-emerald-400 block text-sm">
+                  <span className="font-mono font-black text-emerald-400 block text-sm">
                     {c.startTime} - {c.endTime}
                   </span>
-                  <span className="font-bold text-slate-900 dark:text-white mt-1 block">
-                    {c.subjectName} — {c.className}
+                  <span className="font-bold text-white mt-1 block">
+                    {c.subjectName} — <span className="text-amber-300">{c.className}</span>
                   </span>
-                  <span className="text-slate-400 text-[11px]">📍 {c.roomName}</span>
+                  <span className="text-slate-400 text-[11px] mt-0.5 block">📍 {c.roomName}</span>
                 </div>
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                <span className="px-3 py-1 rounded-full text-[10px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                   {c.dayLabel}
                 </span>
               </div>
@@ -172,6 +194,11 @@ export default function TeacherPortalPage() {
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="p-6 border-t border-slate-800/80 text-center text-xs text-slate-500">
+        <p>ÉCOLIA © 2026 — L'école, simplement. Conçu pour l'Afrique francophone.</p>
+      </footer>
     </div>
   );
 }
