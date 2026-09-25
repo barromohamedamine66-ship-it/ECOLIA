@@ -51,6 +51,7 @@ export interface FullReportCardData {
   isExAequo: boolean;
   mention: string;
   councilDecision: string;
+  appreciation: string;
   totalAbsences: number;
   justifiedAbsences: number;
 }
@@ -121,6 +122,7 @@ export async function getStudentReportCard(
     isExAequo: false,
     mention: 'Bien',
     councilDecision: 'Tableau d\'Honneur avec Félicitations du Conseil des Professeurs',
+    appreciation: 'Trimestre remarquable. Travail régulier, esprit d\'analyse pertinent. Félicitations du Conseil.',
     totalAbsences: 2,
     justifiedAbsences: 2,
   };
